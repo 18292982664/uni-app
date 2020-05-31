@@ -1,0 +1,16 @@
+{
+  "id": "1849948",
+  "name": "仿小米商城",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8721206",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    }
+  ]
+}

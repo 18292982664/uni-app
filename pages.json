@@ -1,0 +1,54 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus":{
+					"scrollIndicator":"none",
+					"titleNView":{
+						"searchInput":{
+							"align":"left",
+							"backgroundColor":"#f7f7f7",
+							"borderRadius":"4px",
+							"disabled":true,
+							"placeholder":"搜索1",
+							"placeholderColor":"#cccccc"
+						},
+						"buttons":[
+							{
+								"color":"#989898",
+								"colorPressed":"#FD6801",
+								"float":"left",
+								"fontSize":"22px",
+								"fontSrc":""
+							}
+						]
+					}
+				}
+			}
+		}
+	    ,{
+            "path" : "pages/car/car",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/a/a",
+            "style" : {}
+        }
+    ],
+	"tabBar": {
+	    "list": [{
+	      "pagePath": "pages/index/index",
+	      "text": "首页"
+	    },{
+	      "pagePath": "pages/car/car",
+	      "text": "购物车"
+	    }]
+	  },
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "App",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
