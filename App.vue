@@ -1,5 +1,8 @@
 <script>
 	export default {
+		 onUniNViewMessage:function(e){
+			console.log(e)
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},

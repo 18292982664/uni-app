@@ -1,12 +1,75 @@
 <template>
 	<div>
-		<text>452</text>
+		<list>
+			<!--   <header><div style="background-color: #007BFF;">7887</div></header> -->
+			<refresh @refresh="refresh" :display="show" @pullingdown="pullingdown ">
+				<text>{{refreshText}}</text>
+			</refresh>
+			<cell v-for="num in lists">
+				<div style="height: 300px;background-color: red;" @click="postMess(num)">9696</div>
+				<text>{{num}}</text>
+			</cell>
+			<loading @loading="onLoading" :display="loadingingShow">
+				<text style="display: flex;justify-content: center;width: 720px;">
+					loading...
+				</text>
+			</loading>
+		</list>
 	</div>
 </template>
 
 <script>
+	const globalEvent = weex.requireModule('globalEvent');
 	export default {
-		
+		data() {
+			return {
+				show: 'hide',
+				refreshText: "下拉可以刷新",
+				loadingingShow: "hide",
+				lists: ['A', 'B', 'C', 'D', 'E']
+			}
+		},
+		created() {
+			globalEvent.addEventListener("plusMessage", e => {
+				console.log(e);
+			});
+		},
+		methods: {
+			// nvue 与vue之间通讯
+			postMess(num) {
+				uni.postMessage({
+					data:num,
+					form:"index",
+					test: "数据",
+					value: "数据"
+				});
+			},
+			onLoading(e) {
+				this.loadingingShow = 'show';
+				console.log('fddf')
+				setTimeout(() => {
+					this.lists = [...this.lists, ...['aa', 'bb', 'cc']];
+					this.loadingingShow = 'hide';
+					console.log('111')
+				}, 2000)
+			},
+			//执行刷新
+			refresh(e) {
+				this.show = "show"
+				this.refreshText = "正在刷新中...";
+				setTimeout(() => {
+					this.show = "hide"
+					this.refreshText = "下拉可以刷新"
+				}, 1200)
+			},
+			pullingdown(e) {
+				if (e.pullingDistance > e.viewHeight) {
+					this.refreshText = "释放刷新"
+				} else {
+					this.refreshText = "下拉可以刷新"
+				}
+			}
+		}
 	}
 </script>
 
